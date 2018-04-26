@@ -83,7 +83,7 @@ public class Ext_Slack extends AbstractExtensionScriptableObject {
             } else {
                 session = SlackSessionFactory.createWebSocketSlackSession(SlackAPItoken);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             this.getLogger().error("Something happened in getSession: " + e);
         }
 
@@ -104,19 +104,19 @@ public class Ext_Slack extends AbstractExtensionScriptableObject {
         }
         if (defaultChannel == null) {
             DefaultChannel = "general";
-        }else {
+        } else {
             DefaultChannel = defaultChannel;
         }
-        if(proxyInfo != null) {
-            for (Map.Entry<Object, Object> e : proxyInfo.entrySet()){
+        if (proxyInfo != null) {
+            for (Map.Entry<Object, Object> e : proxyInfo.entrySet()) {
                 String key = e.getKey().toString();
-                if(key.equals("host")) {
+                if (key.equals("host")) {
                     ProxyHost = e.getValue().toString();
-                }else if(key.equals("port")) {
+                } else if (key.equals("port")) {
                     ProxyPort = e.getValue().toString();
-                }else if(key.equals("user")) {
+                } else if (key.equals("user")) {
                     ProxyUser = e.getValue().toString();
-                }else if(key.equals("password")) {
+                } else if (key.equals("password")) {
                     ProxyPassword = e.getValue().toString();
                 }
             }
@@ -140,8 +140,8 @@ public class Ext_Slack extends AbstractExtensionScriptableObject {
             SlackChannel channel = session.findChannelByName(DefaultChannel);
             session.sendMessage(channel, message);
 
-        }catch (Exception e) {
-            this.getLogger().error("Something happened in sendMessage. "+e);
+        } catch (Exception e) {
+            this.getLogger().error("Something happened in sendMessage. " + e);
 
         }
 
@@ -163,8 +163,8 @@ public class Ext_Slack extends AbstractExtensionScriptableObject {
             SlackChannel channel = session.findChannelByName(specifiedChannel);
             session.sendMessage(channel, message);
 
-        }catch (Exception e) {
-            this.getLogger().error("Something happened in sendMessageToChannel. "+e);
+        } catch (Exception e) {
+            this.getLogger().error("Something happened in sendMessageToChannel. " + e);
 
         }
     }
@@ -186,8 +186,8 @@ public class Ext_Slack extends AbstractExtensionScriptableObject {
             SlackUser user = session.findUserByUserName(userName);
             session.sendMessageToUser(user, message, null);
 
-        }catch (Exception e) {
-            this.getLogger().error("Something happened in sendMessageToUser. "+e);
+        } catch (Exception e) {
+            this.getLogger().error("Something happened in sendMessageToUser. " + e);
 
         }
 
