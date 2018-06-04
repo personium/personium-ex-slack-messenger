@@ -1,8 +1,10 @@
 # personium-ex-slack-messenger
 
 ## About
-
 This is a [Personium](http://personium.io)'s Engine extension for sending Slack message to specified channel.
+
+## Installation
+Please see [Setup Engine Extensions](https://personium.io/docs/en/server-operator/setup_engine_extensions.html).
 
 ## Usage
 
